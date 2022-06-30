@@ -161,6 +161,50 @@ addLayer("chione", {
     },
          effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
        },
+      26:{
+         title:"x5 gain",
+         description:"use x5 of gain.",
+         cost:new Decimal(1e27),
+         unlocked() { return hasUpgrade('chitwo', 17) },
+         effect() {
+         eff = new Decimal(5)
+         return eff
+    },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+       },
+      27:{
+         title:"x5 gain",
+         description:"use x5 of gain.",
+         cost:new Decimal(3e27),
+         unlocked() { return hasUpgrade('chitwo', 17) },
+         effect() {
+         eff = new Decimal(5)
+         return eff
+    },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+       },
+      28:{
+         title:"x5 gain",
+         description:"use x5 of gain for u+4e01.",
+         cost:new Decimal(1e28),
+         unlocked() { return hasUpgrade('chitwo', 17) },
+         effect() {
+         eff = new Decimal(5)
+         return eff
+    },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+       },
+      29:{
+         title:"x15 gain",
+         description:"use x15 of gain for u+4e01.",
+         cost:new Decimal(1e28),
+         unlocked() { return hasUpgrade('chitwo', 17) },
+         effect() {
+         eff = new Decimal(15)
+         return eff
+    },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+       },
     },
 })
 
@@ -181,6 +225,7 @@ addLayer("chitwo", {
     exponent: 0.49, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('chione', 28)) mult = mult.times(upgradeEffect('chione', 28))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -222,6 +267,13 @@ addLayer("chitwo", {
          title:"Log2(100)",
          description:"my gain now :)",
          cost:new Decimal(5e9),
+        
+       },
+      17:{
+         title:"New?",
+         description:"unlock new upgrade 4 times for u+4e00 upgrades.",
+         cost:new Decimal(1.5e10),
+         unlocked() { return hasMilestone("chitwo", 1) },
        },
     },
   milestones: {
@@ -235,7 +287,7 @@ addLayer("chitwo", {
         requirementDescription: "2,147,483,647 U+4E01 Points",
         effectDescription: "Log2(10) gain and unlock upgrade 2 times.",
         done() { return player.chitwo.points.gte(2147483647) },
-        unlocked() { return hasUpgrade('chione', 25) }
+        unlocked() { return hasMilestone("chitwo", 1) }
     },
 },
 })
