@@ -49,8 +49,13 @@ function getPointGen() {
   if (hasUpgrade('chione', 17)) gain = gain.times(upgradeEffect('chione', 17))
   if (hasUpgrade('chione', 18)) gain = gain.times(upgradeEffect('chione', 18))
   if (hasUpgrade('chione', 19)) gain = gain.times(upgradeEffect('chione', 19))
+  if (hasUpgrade('chione', 22)) gain = gain.times(upgradeEffect('chione', 22))
+  if (hasUpgrade('chione', 23)) gain = gain.times(upgradeEffect('chione', 23))
+  if (hasUpgrade('chione', 24)) gain = gain.times(upgradeEffect('chione', 24))
   if (hasUpgrade('chitwo', 11)) gain = gain.times(upgradeEffect('chitwo', 11))
   if (hasUpgrade('chitwo', 13)) gain = gain.times(player.chitwo.points.sqrt())
+  if (hasUpgrade('chitwo', 14)) gain = gain.times(3)
+  if (hasMilestone("chitwo", 0)) gain = gain.times(3)
 	return gain
 }
 

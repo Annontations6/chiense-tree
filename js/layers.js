@@ -128,6 +128,28 @@ addLayer("chione", {
     },
          effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
        },
+      23:{
+         title:"Log2(10)",
+         description:"use log2(10) of gain.",
+         cost:new Decimal(1e14),
+         unlocked() { return hasUpgrade('chitwo', 12) },
+         effect() {
+         eff = new Decimal(10).log2()
+         return eff
+    },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+       },
+      24:{
+         title:"Log2(10) II",
+         description:"use log2(10) of gain.",
+         cost:new Decimal(2e17),
+         unlocked() { return hasUpgrade('chitwo', 12) },
+         effect() {
+         eff = new Decimal(10).log2()
+         return eff
+    },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+       },
     },
 })
 
@@ -174,6 +196,16 @@ addLayer("chitwo", {
          title:"Sqrt U+4E01 point",
          description:"square root of gain.",
          cost:new Decimal(80),
+       },
+      14:{
+         title:"Triple gain",
+         description:"triple of gain.",
+         cost:new Decimal(1e4),
+       },
+      15:{
+         title:"Log2(100)",
+         description:"my gain now :)",
+         cost:new Decimal(1e4),
        },
     },
   milestones: {
