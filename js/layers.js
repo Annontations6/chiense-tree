@@ -106,10 +106,20 @@ addLayer("chione", {
     },
          effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
        },
+      21:{
+         title:"Triple gain",
+         description:"x3.0.",
+         cost:new Decimal(2e11),
+         effect() {
+         eff = new Decimal(3)
+         return eff
+    },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+       },
     },
 })
 
-addLayer("chione", {
+addLayer("chitwo", {
     name: "chi 2", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "丁", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
@@ -126,14 +136,13 @@ addLayer("chione", {
     exponent: 0.49, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (hasUpgrade('chione', 13)) mult = mult.times(upgradeEffect('chione', 13))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return true},
+    row: 1, // Row the layer is in on the tree (0 is the first row)
+    layerShown(){return hasUpgrade('chione', 19)},
     upgrades: {
        11:{
          title:"Double Point Gain",
@@ -143,6 +152,11 @@ addLayer("chione", {
          eff = new Decimal(2)
          return eff
          },
+       },
+      12:{
+         title:"Upgrade 2",
+         description:"unlock new row for U+4E00 point upgrade.",
+         cost:new Decimal(20),
        },
     },
 })
