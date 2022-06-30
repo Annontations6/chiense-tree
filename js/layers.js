@@ -267,6 +267,7 @@ addLayer("chitwo", {
          title:"Log2(100)",
          description:"my gain now :)",
          cost:new Decimal(5e9),
+         unlocked() { return hasMilestone("chitwo", 1) },
         
        },
       17:{
@@ -287,7 +288,13 @@ addLayer("chitwo", {
         requirementDescription: "2,147,483,647 U+4E01 Points",
         effectDescription: "Log2(10) gain and unlock upgrade 2 times.",
         done() { return player.chitwo.points.gte(2147483647) },
-        unlocked() { return hasMilestone("chitwo", 1) }
+        unlocked() { return hasUpgrade('chione', 25) }
+    },
+    2: {
+        requirementDescription: "3e10 U+4E01 Points",
+        effectDescription: "x25 gain. and finsh to the chiense tree.",
+        done() { return player.chitwo.points.gte(3e10) },
+        unlocked() { return hasUpgrade('chione', 25) }
     },
 },
 })
