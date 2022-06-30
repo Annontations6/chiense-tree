@@ -43,6 +43,9 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+  if (hasUpgrade('chione', 11)) gain = gain.times(upgradeEffect('chione', 11))
+  if (hasUpgrade('chione', 12)) gain = gain.times(upgradeEffect('chione', 12))
+  if (hasUpgrade('chione', 14)) gain = gain.times(upgradeEffect('chione', 14))
 	return gain
 }
 
