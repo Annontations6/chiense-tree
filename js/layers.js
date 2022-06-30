@@ -150,6 +150,17 @@ addLayer("chione", {
     },
          effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
        },
+      25:{
+         title:"Triple gain",
+         description:"use triple of gain and unlock a new milestone.",
+         cost:new Decimal(1e25),
+         unlocked() { return hasUpgrade('chitwo', 12) },
+         effect() {
+         eff = new Decimal(3)
+         return eff
+    },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+       },
     },
 })
 
@@ -205,7 +216,12 @@ addLayer("chitwo", {
       15:{
          title:"Log2(100)",
          description:"my gain now :)",
-         cost:new Decimal(1e4),
+         cost:new Decimal(1e6),
+       },
+      16:{
+         title:"Log2(100)",
+         description:"my gain now :)",
+         cost:new Decimal(5e9),
        },
     },
   milestones: {
@@ -214,6 +230,12 @@ addLayer("chitwo", {
         effectDescription: "Triple gain.",
         done() { return player.chitwo.points.gte(300) },
         unlocked() { return hasUpgrade('chione', 22) }
+    },
+    1: {
+        requirementDescription: "2,147,483,647 U+4E01 Points",
+        effectDescription: "Log2(10) gain and unlock upgrade 2 times.",
+        done() { return player.chitwo.points.gte(2147483647) },
+        unlocked() { return hasUpgrade('chione', 25) }
     },
 },
 })
