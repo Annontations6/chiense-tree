@@ -46,6 +46,8 @@ function getPointGen() {
   if (hasUpgrade('chione', 11)) gain = gain.times(upgradeEffect('chione', 11))
   if (hasUpgrade('chione', 12)) gain = gain.times(upgradeEffect('chione', 12))
   if (hasUpgrade('chione', 14)) gain = gain.times(upgradeEffect('chione', 14))
+  if (hasUpgrade('chione', 17)) gain = gain.times(upgradeEffect('chione', 17))
+  if (hasUpgrade('chione', 18)) gain = gain.times(upgradeEffect('chione', 18))
 	return gain
 }
 
