@@ -110,8 +110,20 @@ addLayer("chione", {
          title:"Triple gain",
          description:"x3.0.",
          cost:new Decimal(2e11),
+         unlocked() { return hasUpgrade('chitwo', 12) },
          effect() {
          eff = new Decimal(3)
+         return eff
+    },
+         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+       },
+      22:{
+         title:"Base Milestone 2",
+         description:"double point gain and unlock new milestone.",
+         cost:new Decimal(9e12),
+         unlocked() { return hasUpgrade('chitwo', 12) },
+         effect() {
+         eff = new Decimal(2)
          return eff
     },
          effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
@@ -158,5 +170,18 @@ addLayer("chitwo", {
          description:"unlock new row for U+4E00 point upgrade.",
          cost:new Decimal(20),
        },
+      13:{
+         title:"Sqrt U+4E01 point",
+         description:"square root of gain.",
+         cost:new Decimal(80),
+       },
     },
+  milestones: {
+    0: {
+        requirementDescription: "300 U+4E01 Points",
+        effectDescription: "Triple gain.",
+        done() { return player.chitwo.points.gte(300) },
+        unlocked() { return hasUpgrade('chione', 22) }
+    },
+},
 })

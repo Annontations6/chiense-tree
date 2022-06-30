@@ -50,6 +50,7 @@ function getPointGen() {
   if (hasUpgrade('chione', 18)) gain = gain.times(upgradeEffect('chione', 18))
   if (hasUpgrade('chione', 19)) gain = gain.times(upgradeEffect('chione', 19))
   if (hasUpgrade('chitwo', 11)) gain = gain.times(upgradeEffect('chitwo', 11))
+  if (hasUpgrade('chitwo', 13)) gain = gain.times(player.chitwo.points.sqrt())
 	return gain
 }
 
